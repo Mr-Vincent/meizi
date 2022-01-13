@@ -126,5 +126,5 @@ func main() {
 	saveImage(imgUrls, config)
 
 	wg.Wait() //阻塞直到所有任务完成
-	log.Printf("all task has finish...")
+	log.Printf("All task has been finished...")
 }
