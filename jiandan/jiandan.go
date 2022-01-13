@@ -133,7 +133,11 @@ func (j *Jiandan) Go() {
 		log.Printf("next page url is %s\n", nextPageUrl)
 		j.parseAndSave(nextPageUrl)
 		j.currentPage++
+		if j.currentPage > j.maxPage {
+			break
+		}
 	}
+	j.wg.Wait()
 	log.Printf("All task has been finished...")
 
 }
