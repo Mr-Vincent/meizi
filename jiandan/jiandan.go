@@ -13,15 +13,16 @@ import (
 	"time"
 )
 
+// 煎蛋站点的实现
 type Jiandan struct {
 	wg          *sync.WaitGroup
-	dir         string
-	currentPage int
+	dir         string // 下载到哪个文件夹下
+	currentPage int    // 当前页
 	userCookie  string
 	client      *http.Client
-	p           provider.Provider
-	nextPageUrl string
-	maxPage     int
+	p           provider.Provider // 定义站点和对应到翻页以及解析逻辑
+	nextPageUrl string            // 下一页的地址
+	maxPage     int               // 最多翻多少页
 }
 
 func Create(dir string, startPage int, p provider.Provider, cookie string, client *http.Client, nextPageUrl string, wg *sync.WaitGroup, maxPage int) *Jiandan {
@@ -138,6 +139,6 @@ func (j *Jiandan) Go() {
 		}
 	}
 	j.wg.Wait()
-	log.Printf("All task has been finished...")
+	log.Printf("All tasks have been finished...")
 
 }

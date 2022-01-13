@@ -8,6 +8,18 @@
 > 3rd dependency : github.com/PuerkitoBio/goquery v1.8.0
 >
 
+# 安装依赖 installation
+> go mod download
+
+# 截图
+
+![img](res/result.png)
+
+
+# 分支
+- master 原始版本
+- feature/modularize 优化后的
+
 # todo
 
 -[x] 多页爬取
